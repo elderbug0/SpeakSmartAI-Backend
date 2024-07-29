@@ -2,6 +2,7 @@ import os
 import time
 import google.generativeai as genai
 from moviepy.editor import VideoFileClip
+import multiprocessing
 
 GEMINI_API_KEY = "AIzaSyD4QLGKHRr2NMIZR8yAWbqjZoRaVk1jnDE"
 genai.configure(api_key=GEMINI_API_KEY)
@@ -13,9 +14,12 @@ def update_status(status):
 
 def resize_video(input_path, output_path):
     update_status("Resizing video...")
+    threads = multiprocessing.cpu_count()  # Use the number of logical cores
+    print(threads)
     with VideoFileClip(input_path) as clip:
         clip_resized = clip.resize(height=360)
-        clip_resized.write_videofile(output_path, codec='libx264', preset='ultrafast', bitrate='500k')
+        # Use the original file extension and codec
+        clip_resized.write_videofile(output_path, codec='libx264', preset='ultrafast', bitrate='200k', threads=8)
     update_status("Video resized successfully!")
 
 def upload_to_gemini(path, mime_type=None):
@@ -30,7 +34,7 @@ def wait_for_files_active(files):
         file = genai.get_file(name)
         while file.state.name == "PROCESSING":
             update_status("Processing video... Almost done.")
-            time.sleep(2)
+            time.sleep(1)  # Reduce sleep time to get updates faster
             file = genai.get_file(name)
         if file.state.name != "ACTIVE":
             raise Exception(f"Processing of file {file.name} failed.")
@@ -46,7 +50,7 @@ def get_prompt(language):
 def analyze_video(video_path, language):
     try:
         update_status('Starting video analysis...')
-        resized_video_path = "resized_video.mp4"
+        resized_video_path = os.path.splitext(video_path)[0] + "_resized" + os.path.splitext(video_path)[1]
         resize_video(video_path, resized_video_path)
         uploaded_file = upload_to_gemini(resized_video_path, mime_type="video/mp4")
         wait_for_files_active([uploaded_file])
@@ -85,5 +89,5 @@ def delete_uploaded_files(folder_path):
         raise
 
 # Example usage:
-# result = analyze_video('path_to_your_video.mp4', 'en')
+# result = analyze_video('path_to_your_video.mov', 'en')
 # print(result)
