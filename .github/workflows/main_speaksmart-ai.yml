@@ -28,7 +28,9 @@ jobs:
           source venv/bin/activate
 
       - name: setting
-        run: pip install --upgrade setuptools --user python
+        run: |
+          pip uninstall setuptools
+          pip install setuptools
       
       - name: Install dependencies
         run: pip install -r requirements.txt
