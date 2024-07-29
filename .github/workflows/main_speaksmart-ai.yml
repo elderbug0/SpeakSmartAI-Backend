@@ -25,12 +25,12 @@ jobs:
       - name: Create and start virtual environment
         run: |
           python -m venv venv
-          source venv/bin/activate
+          source myenv/bin/activate
+          pip install --upgrade setuptools
+          deactivate
+          source myenv/bin/activate
 
-      - name: setting
-        run: |
-          pip uninstall setuptools
-          pip install setuptools
+
       
       - name: Install dependencies
         run: pip install -r requirements.txt
