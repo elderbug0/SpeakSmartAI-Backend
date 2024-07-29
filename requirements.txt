@@ -130,5 +130,5 @@ websockets==12.0
 Werkzeug==2.3.7
 wsproto==1.2.0
 yarg==0.1.9
-yarl==1.9.2
-moviepy==1.0.3
+yarl==1.9.2sd
+moviepy==1.0.0
