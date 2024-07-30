@@ -2,7 +2,7 @@ import os
 import time
 import google.generativeai as genai
 
-GEMINI_API_KEY = "AIzaSyD4QLGKHRr2NMIZR8yAWbqjZoRaVk1jnDE"
+GEMINI_API_KEY = "AIzaSyB5FOwqZAJd2VQFCoPyYlBWZx1tj9Tu_dE"
 genai.configure(api_key=GEMINI_API_KEY)
 
 def update_status(status):
