@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - speaksmart-ai
+name: Build and deploy Python app to Azure Web App - speaksmartai-xyz
 
 on:
   push:
@@ -26,16 +26,9 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-          pip install --upgrade setuptools
-          deactivate
-          source venv/bin/activate
-
-
       
       - name: Install dependencies
-        run: |
-          pip install wheel
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
@@ -56,9 +49,7 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
-
+    
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -69,17 +60,10 @@ jobs:
         run: unzip release.zip
 
       
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_49C9940E0B3C476886559C85F936B06C }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D34094B97D434596B787E90F18654160 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9C7C101A7FFF449DBC521B789653FF12 }}
-
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'speaksmart-ai'
+          app-name: 'speaksmartai-xyz'
           slot-name: 'Production'
-          
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3B944D14993946BABDC98638BA63544B }}
