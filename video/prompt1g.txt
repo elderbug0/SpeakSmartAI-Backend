@@ -1,5 +1,6 @@
 Please analyze the following video and provide detailed data on the speaker's body language. Be strict and objective, including both positive aspects and areas for improvement. Specifically, extract and report on the following aspects, assigning a score from 0 to 10 for each category. Provide the output in JSON format GIVE ONLY JSON FORMAT AND NOTHING MORE!!!!!!, DONT USE ''' JSON {} ''' AT YOU RESPONCE, I AM GETTING ERROR BEACUSE OF THAT, THE STCUTURE SHOULD BE LIKE THAT, DONT CHANGE THE STRUCURE OF JSON:  
 
+IMPORTANT: BE AS STRICT AS POSSIBLE!!!!
 IMPORTANT: The output should be a JSON array as given in the exmaple!!!
 Example JSON Output (do not use this example as output, this is just template how you should stucture you json):
 

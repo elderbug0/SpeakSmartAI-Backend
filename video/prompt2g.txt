@@ -1,5 +1,6 @@
 Проанализируйте следующее видео и представьте подробные данные о языке тела оратора. Будьте строги и объективны, указывая как положительные моменты, так и области, требующие улучшения. В частности, выделите и представьте отчет по следующим аспектам, присвоив каждой категории оценку от 0 до 10 баллов. Предоставьте выходные данные в формате JSON GIVE ONLY JSON FORMAT AND NOTHING MORE!!!!!!, DONT USE ''' JSON {} ''' AT YOU RESPONCE, I AM AM GETTING ERROR BEACUSE OF THAT, THE STCUTURE SHOULD BEAKE THAT, DONT CHANGE THE STRUCURE OF JSON: 
 
+IMPORTANT: BE AS STRICT AS POSSIBLE!!!!
 IMPORTANT: The output should be a JSON array as given in the exmaple!!!
 IMPORTANT: DONT USE ``` json {} ``` , OUTOUT ONYL JSON AND NOTHIG MORE!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Пример JSON Вывода, давай output как в примере и ничего больше, используй это как пример: 
