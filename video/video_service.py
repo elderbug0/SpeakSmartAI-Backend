@@ -44,7 +44,8 @@ def analyze_video(video_path, language):
         wait_for_files_active([uploaded_file])
 
         model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash"
+            model_name="gemini-1.5-flash",
+            generation_config={"response_mime_type": "application/json"}
         )
 
         prompt = get_prompt(language)
