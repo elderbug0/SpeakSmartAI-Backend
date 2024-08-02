@@ -1,6 +1,5 @@
 import os
 from flask import request, jsonify
-from moviepy.editor import VideoFileClip
 from .audio_service import AudioService
 
 class AudioController:
@@ -9,37 +8,31 @@ class AudioController:
         self.base_path = os.path.dirname(os.path.abspath(__file__))
 
     def upload_and_send_audio(self):
-        if 'video' not in request.files:
-            return jsonify({"error": "No file uploaded"}), 400
+        if 'audio' not in request.files:
+            return jsonify({"error": "No audio file uploaded"}), 400
 
-        file = request.files['video']
-        video_upload_folder = os.path.join(self.base_path, 'video_data')
+        file = request.files['audio']
         audio_upload_folder = os.path.join(self.base_path, 'audio_data')
 
-        # Ensure directories exist
+        # Ensure directory exists
         try:
-            if not os.path.exists(video_upload_folder):
-                os.makedirs(video_upload_folder)
             if not os.path.exists(audio_upload_folder):
                 os.makedirs(audio_upload_folder)
         except Exception as error:
-            print(f"Error creating directories: {str(error)}")
-            return jsonify({"error": "Failed to create directories"}), 500
+            print(f"Error creating directory: {str(error)}")
+            return jsonify({"error": "Failed to create directory"}), 500
 
-        video_path = os.path.join(video_upload_folder, file.filename)
-        audio_path = os.path.join(audio_upload_folder, f"{os.path.splitext(file.filename)[0]}.mp3")
+        audio_path = os.path.join(audio_upload_folder, file.filename)
 
         try:
-            file.save(video_path)
+            file.save(audio_path)
         except Exception as error:
-            print(f"Error saving video file: {str(error)}")
-            return jsonify({"error": "Failed to save video file"}), 500
+            print(f"Error saving audio file: {str(error)}")
+            return jsonify({"error": "Failed to save audio file"}), 500
 
         language = request.form.get('language', 'en')
 
         try:
-            # Extract audio from video
-            self.extract_audio_from_video(video_path, audio_path)
             result = self.audio_service.save_and_send_audio(audio_path, language)
             return jsonify(result)
         except Exception as error:
@@ -47,23 +40,10 @@ class AudioController:
             return jsonify({"error": str(error)}), 500
         finally:
             try:
-                if os.path.exists(video_path):
-                    os.remove(video_path)
                 if os.path.exists(audio_path):
                     os.remove(audio_path)
             except Exception as error:
                 print(f"Error deleting file: {str(error)}")  # Log the error
-
-    def extract_audio_from_video(self, video_path, audio_path):
-        try:
-            video_clip = VideoFileClip(video_path)
-            audio_clip = video_clip.audio
-            audio_clip.write_audiofile(audio_path)
-            audio_clip.close()
-            video_clip.close()
-        except Exception as error:
-            print(f"Error extracting audio: {str(error)}")  # Log the error
-            raise Exception(f"Failed to extract audio from video: {str(error)}")
 
     def analyze_speech_text(self):
         data = request.get_json()
