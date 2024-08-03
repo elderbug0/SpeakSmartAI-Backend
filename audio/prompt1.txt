@@ -17,6 +17,11 @@ Assign a score from 0 to 10 for each category.
 Example JSON Output (do not use this example as output, this is just template how you should structure your json):
 
 {
+
+"links":{
+  "link": "give link to the youtube viode to improve the skills that user needs more" (give only valid youtube video THAT IS NOT DELETED)
+},
+
 "Sentiment Analysis": {
   "score": 5,
   "overall_sentiment": "positive",

@@ -16,6 +16,9 @@
 
 Пример вывода JSON (не используйте этот пример как вывод, это просто шаблон того, как вы должны структурировать свой json):
 {
+"links":{
+  "link": "give link to the youtube viode to improve the skills that user needs more" (give only valid youtube video THAT IS NOT DELETED)
+},
   "Анализ настроений": {
     "score": 5,
     "общий настрой": "позитивный",

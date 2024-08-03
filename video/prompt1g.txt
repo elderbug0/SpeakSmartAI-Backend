@@ -15,11 +15,6 @@ Example JSON Output (do not use this example as output, this is just template ho
     "NonVerbal Cues": 6
   },
   "details": {
-
-    "links":{
-      "link": "give link to the youtube viode to improve the skills that user needs more"
-    },
-
     "Posture Analysis": {
       "Duration Of Postures": {
         "standing": "The speaker stood for the majority of the speech, maintaining a confident and open stance.",
