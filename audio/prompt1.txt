@@ -14,12 +14,32 @@ THE STRUCTURE SHOULD BE LIKE THAT, DON'T CHANGE THE STRUCTURE OF JSON
 
 Assign a score from 0 to 10 for each category.
 
+this is the youtube links list:
+1. https://youtu.be/tShavGuo0_E?si=18XlNJgjCicD5kKA - Be a More Confident Public Speaker
+2. https://youtu.be/-FOCpMAww28?si=ue9S185JlK_X0JfO - TED's secret to great public speaking | Chris Anderson | TED
+3. https://youtu.be/962eYqe--Yc?si=_GjSJssIjcDwNZjD - 4 Tips To IMPROVE Your Public Speaking - How to CAPTIVATE an Audience
+4.  https://youtu.be/ZK3jSXYBNak?si=n5hB22faL5do1Hni - 4 essential body language tips from a world champion public speaker
+5. https://youtu.be/i5mYphUoOCs?si=S4qvxLxOm3S-An9V - Public Speaking For Beginners
+6.https://youtu.be/Q5WT2vweFRY?si=NYcGUjE29tMmaCLO - PRESENTING AND PUBLIC SPEAKING TIPS - HOW TO IMPROVE SKILLS & CONFIDENCE
+7. https://youtu.be/83wYDzO3CzI?si=vep-_4Olq5ok_HAW - Public Speaking Anxiety Tips: 6 Mindset Tips
+8. https://youtu.be/kcoch-Mpgls?si=3lGvXxSSrgtOQ9C- - We can help you master public speaking - Chris Anderson
+9. https://youtu.be/xSp78RwcAS4?si=oemE1sg_f9ivwuLh - The public speaking lesson you never had | DK . | TEDxNelson
+10. https://youtu.be/f60IU-tQxMA?si=8RlusY1an64Wt24k - Best Hand Gestures For Public Speaking
+11. https://www.youtube.com/watch?v=b7id4rzgKIM - Master the art of public speaking with TED Masterclass
+12. https://www.youtube.com/watch?v=cFLjudWTuGQ - Make Body Language Your Superpower
+13. https://youtu.be/eIho2S0ZahI?si=J-nQT06iYcHt2uud - How to speak so that people want to listen | Julian Treasure | TED
+14. https://youtu.be/I5we4kZIQRY?si=0prRYg_gOORch443 - How To Talk To An Audience | Jordan Peterson | Public Speaking Tips
+15. https://youtu.be/MnIPpUiTcRc?si=hSlqeAAr3Dj7hNw_ - HOW TO Give a Great Presentation - 7 Presentation Skills and Tips to Leave an Impression
+16. https://www.youtube.com/watch?v=Unzc731iCUY - How to Speak by MIT
+17. https://youtu.be/vjdNewrG20E?si=2kTXeGbH7cWYFN6a - How To Speak With Confidence & Authority (3 EASY TRICKS!)
+
+
 Example JSON Output (do not use this example as output, this is just template how you should structure your json):
 
 {
 
 "links":{
-  "link": "give link to the youtube viode to improve the skills that user needs more" (give only valid youtube video THAT IS NOT DELETED)
+  "link": "give link from the list above, choose which one suits the most and give from the list. do not include the description i need only link"
 },
 
 "Sentiment Analysis": {
