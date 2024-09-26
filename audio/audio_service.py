@@ -4,8 +4,8 @@ import openai
 
 class AudioService:
     def __init__(self):
-        self.auth_token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNDAyMjE5MjgtNjZlMC00ZjdmLTgxZGMtNDI1YzcyOGIzMjRjIiwidHlwZSI6ImFwaV90b2tlbiJ9.v8a_xa_PMX9QY8Siv5Z1D_lvjRq5C4vzbpVEsH9hlLs'
-        self.openai_api_key = 'sk-proj-P3pxoJavCfuNdN0xhcnAT3BlbkFJamm6alnzbHOzZOxDOFd1'
+        self.auth_token = ''
+        self.openai_api_key = ''
         self.headers = {
             "Authorization": f"Bearer {self.auth_token}"
         }
